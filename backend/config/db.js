@@ -1,9 +1,11 @@
 import mongoose from "mongoose";
+import dotenv from "dotenv";
+dotenv.config();
 
 
 const connectDB = async () => {
 try {
-const conn = await mongoose.connect(process.env.MONGO_URI, {
+const conn = await mongoose.connect(process.env.MONGODB_URI, {
          useNewUrlParser: true, // supports authentication ipv6 addresses srv records
          useUnifiedTopology: true // standardizes server discovery and monitoring and failsover behavior making connnections more robust
     });

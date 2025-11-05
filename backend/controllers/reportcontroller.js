@@ -37,10 +37,10 @@ export const uploadFileAndCreateReport = async (req, res) => {
   //text extraction
 import { extractTextFromFile } from "../services/ocrService.js";
 
-import fs from "fs";
+//import fs from "fs";
 import axios from "axios";
 import path from "path";
-import Report from "../models/reportModel.js";
+//import Report from "../models/reportModel.js";
 
 
 // Controller to extract text from a report file
