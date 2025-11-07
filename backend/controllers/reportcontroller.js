@@ -48,7 +48,6 @@ export const extractReportText = async (req, res) => {
   try {
     const { id } = req.params;
 
-    // Find the report by ID
     const report = await Report.findById(id);
     if (!report) {
       return res.status(404).json({ message: "Report not found" });
@@ -58,8 +57,9 @@ export const extractReportText = async (req, res) => {
     const tempDir = path.join(process.cwd(), "temp");
     if (!fs.existsSync(tempDir)) fs.mkdirSync(tempDir);
 
-    // Generate unique temp file path
-    const tempFilePath = path.join(tempDir, `${Date.now()}-report.pdf`);
+    // Detect file extension from the Cloudinary URL
+    const ext = path.extname(new URL(report.fileUrl).pathname) || ".pdf"; // default .pdf if unknown
+    const tempFilePath = path.join(tempDir, `${Date.now()}-report${ext}`);
 
     // Download file from Cloudinary
     const response = await axios.get(report.fileUrl, { responseType: "arraybuffer" });
@@ -67,14 +67,14 @@ export const extractReportText = async (req, res) => {
 
     console.log(`✅ File downloaded to: ${tempFilePath}`);
 
-    // Extract text using your OCR or PDF parser function
+    // Extract text using OCR/PDF parser
     const extractedText = await extractTextFromFile(tempFilePath);
 
-    // Delete temp file after processing
+    // Delete temp file
     fs.unlinkSync(tempFilePath);
     console.log("🧹 Temporary file deleted");
 
-    // Update report in DB
+    // Update MongoDB
     report.originalText = extractedText;
     await report.save();
 
@@ -88,3 +88,4 @@ export const extractReportText = async (req, res) => {
     res.status(500).json({ message: "Failed to extract report text", error: error.message });
   }
 };
+
