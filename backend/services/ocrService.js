@@ -16,6 +16,7 @@ export const extractTextFromFile = async (filePath) => {
     if (ext === ".pdf") {
       //  PDF extraction
       const dataBuffer = fs.readFileSync(filePath);
+      console.log("jai ho")
       const data = await pdfParse(dataBuffer);
       extractedText = data.text;
     } else if ([".jpg", ".jpeg", ".png"].includes(ext)) {
