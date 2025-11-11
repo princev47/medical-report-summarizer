@@ -89,3 +89,45 @@ export const extractReportText = async (req, res) => {
   }
 };
 
+
+
+// controllers/reportController.js
+
+
+export const getFinalReport = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    // Find the report by ID and populate user info if needed
+    const report = await Report.findById(id).populate("user", "name email role");
+
+    if (!report) {
+      return res.status(404).json({ message: "Report not found" });
+    }
+
+    // Optional: check if AI summary is ready
+    if (!report.summary || !report.aiInsights) {
+      return res.status(400).json({ message: "AI analysis not completed yet" });
+    }
+
+    // Return structured final report
+    res.status(200).json({
+      message: "Final analyzed report fetched successfully",
+      report: {
+        id: report._id,
+        title: report.title,
+        uploadedBy: report.user?.name || "Unknown",
+        fileUrl: report.fileUrl,
+        originalText: report.originalText,
+        summary: report.summary,
+        aiInsights: report.aiInsights,
+        createdAt: report.createdAt,
+      },
+    });
+  } catch (error) {
+    console.error("Error fetching final report:", error.message);
+    res.status(500).json({ message: "Failed to fetch final report", error: error.message });
+  }
+};
+
+

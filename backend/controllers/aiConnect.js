@@ -15,7 +15,7 @@ export const analyzeReport = async (req, res) => {
     if (!report.originalText)
       return res.status(400).json({ message: "No extracted text found" });
 
-    const response = await axios.post('http://127.0.0.1:8000/analyze',{
+    const response = await axios.post('http://127.0.0.1:8000/summarize',{
       report_text: report.originalText,
     });
 
