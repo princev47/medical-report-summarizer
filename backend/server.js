@@ -16,6 +16,7 @@ app.use(express.json({ limit: "5mb" }));
 app.get("/", (req, res) => res.json({ status: "ok", project: "medical-report-summarizer-backend" }));
 app.use("/api/auth", authRoutes);
 app.use("/api/reports", reportRoutes);
+//app.use("/api/ai",reportRoutes);
 
 
 const PORT = process.env.PORT || 5000;

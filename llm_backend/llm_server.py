@@ -17,7 +17,7 @@ os.environ["GROQ_API_KEY"] = groq_key
 import datetime
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, resources={r"/*": {"origins": "*"}})
 app.secret_key = 'super_secret_medical_key_456'
 
 
@@ -64,4 +64,4 @@ def summarize():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+     app.run(host='0.0.0.0', port=8000, debug=True)
