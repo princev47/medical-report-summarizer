@@ -5,7 +5,9 @@ import os
 from dotenv import load_dotenv  # ✅ new import
 
 # Load .env file (make sure you created one in the same folder)
-load_dotenv()
+load_dotenv(override=True)
+
+print("Loaded key:", os.getenv("GROQ_API_KEY"))
 
 groq_key = os.getenv("GROQ_API_KEY")
 if not groq_key:
