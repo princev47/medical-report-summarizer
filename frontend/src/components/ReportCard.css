@@ -1,0 +1,2 @@
+.report-card{ display:flex; justify-content:space-between; align-items:center; padding:12px; margin-bottom:12px }
+.report-title{ font-weight:600; font-size:15px; color:#0b1726 }

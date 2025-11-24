@@ -1,0 +1,17 @@
+.nav-wrap{
+  background:#fff;
+  border-bottom:1px solid #eef2f6;
+  box-shadow: 0 6px 18px rgba(12,16,34,0.03);
+}
+.nav-container{
+  max-width:1000px;
+  margin:0 auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:10px 20px;
+}
+.brand{ display:flex; align-items:center; gap:12px; cursor:pointer; }
+.brand-logo{ width:44px; height:44px; border-radius:8px; object-fit:cover; }
+.brand-title{ font-weight:700; font-size:16px; color:#0f172a; }
+.nav-actions{ display:flex; gap:10px; align-items:center; }
