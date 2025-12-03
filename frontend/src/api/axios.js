@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_BASE || "http://localhost:5000/api",
+  baseURL: import.meta.env.VITE_API_BASE || "https://medical-report-summarizer-uobk.onrender.com/api",
 });
 
 // attach token if present
