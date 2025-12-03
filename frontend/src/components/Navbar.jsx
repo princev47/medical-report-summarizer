@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import "./Navbar.css";
-
+import logo from "../assets/ai.jpeg";
 export default function Navbar() {
   const { user, logout } = useContext(AuthContext);
   const navigate = useNavigate();
@@ -11,7 +11,7 @@ export default function Navbar() {
     <header className="nav-wrap">
       <div className="nav-container">
         <div className="brand" onClick={() => navigate("/dashboard")}>
-          <img src="/mnt/data/21242e62-71a7-4435-a58f-8f9f2b9dc6f1.png" alt="logo" className="brand-logo" />
+          <img src={logo} alt="logo" className="brand-logo" />
           <div className="brand-text">
             <div className="brand-title">Medical Report Analyzer</div>
             <small className="small-muted">AI-assisted summaries</small>
