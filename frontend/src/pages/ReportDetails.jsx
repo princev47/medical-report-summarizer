@@ -51,7 +51,7 @@ export default function ReportDetails() {
 
   return (
   <div className="report-page">
-    <div className="card report-card">
+    <div className="report-card">
       <h2 className="report-title">{report.title}</h2>
 
       <a
