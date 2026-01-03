@@ -93,18 +93,7 @@ export default function ReportDetails() {
         </div>
       </div>
 
-      <div style={{ marginTop: 16 }}>
-        <h3>AI Insights (raw JSON)</h3>
-        <pre
-          style={{
-            background: "#fbfdff",
-            padding: 12,
-            borderRadius: 6,
-          }}
-        >
-          {JSON.stringify(report.aiInsights || {}, null, 2)}
-        </pre>
-      </div>
+      
     </div>
   );
 }
