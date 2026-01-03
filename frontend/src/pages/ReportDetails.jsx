@@ -50,50 +50,45 @@ export default function ReportDetails() {
   if (!report) return <div className="card">Loading...</div>;
 
   return (
-    <div className="card">
-      <h2>{report.title}</h2>
+  <div className="report-page">
+    <div className="card report-card">
+      <h2 className="report-title">{report.title}</h2>
 
-      <div style={{ marginTop: 10 }}>
-        <a href={report.fileUrl} target="_blank" rel="noreferrer">
-          Open original file
-        </a>
-      </div>
+      <a
+        href={report.fileUrl}
+        target="_blank"
+        rel="noreferrer"
+        className="file-link"
+      >
+        Open original file
+      </a>
 
-      <div style={{ marginTop: 12 }}>
-        <h3>Extracted Text</h3>
-        <pre
-          style={{
-            whiteSpace: "pre-wrap",
-            background: "#fbfdff",
-            padding: 12,
-            borderRadius: 6,
-          }}
-        >
+      <section className="section">
+        <h3 className="section-title">Extracted Text</h3>
+        <pre className="text-box">
           {report.originalText || "No text extracted yet."}
         </pre>
-      </div>
+      </section>
 
-      <div style={{ marginTop: 12, display: "flex", gap: 8 }}>
+      <div className="action-row">
         <button className="btn-ghost" onClick={handleExtract}>
           Extract Text
         </button>
-        <button className="btn" onClick={handleAnalyze}>
+        <button className="btn-primary" onClick={handleAnalyze}>
           Analyze with AI
         </button>
       </div>
 
-      {status && <div style={{ marginTop: 12 }}>{status}</div>}
+      {status && <div className="status">{status}</div>}
 
-      <div style={{ marginTop: 16 }}>
-        <h3>AI Summary</h3>
-        <div style={{ background: "#fbfdff", padding: 12, borderRadius: 6 }}>
-          <div style={{ whiteSpace: "pre-wrap" }}>
-            {report.summary || "No summary yet."}
-          </div>
+      <section className="section ai-section">
+        <h3 className="section-title">AI Summary</h3>
+        <div className="ai-summary">
+          {report.summary || "No summary yet."}
         </div>
-      </div>
-
-      
+      </section>
     </div>
-  );
+  </div>
+);
+
 }
