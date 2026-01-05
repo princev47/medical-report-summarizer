@@ -1,28 +1,41 @@
-/* ===== Reset ===== */
-* {
-  box-sizing: border-box;
+/* ===============================
+   ISOLATION LAYER (KILLS GLOBAL CSS)
+   =============================== */
+.report-isolation {
+  all: unset;              /* 🔥 resets inherited layout */
+  display: block;
+  width: 100%;
 }
 
-/* ===== Page Wrapper ===== */
+/* ===============================
+   PAGE
+   =============================== */
 .report-page {
+  all: unset;              /* 🔥 critical */
+  display: block;
   min-height: 100vh;
   background: #f5f7fb;
   padding: 32px 16px;
-  display: flex;
-  justify-content: center;
 }
 
-/* ===== Main Card ===== */
+/* ===============================
+   CARD
+   =============================== */
 .report-card {
-  width: 100%;
+  all: unset;              /* 🔥 critical */
+  display: block;
   max-width: 820px;
+  margin: 0 auto;
   background: #ffffff;
   border-radius: 14px;
   padding: 28px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  box-sizing: border-box;
 }
 
-/* ===== Title ===== */
+/* ===============================
+   TEXT & HEADINGS
+   =============================== */
 .report-title {
   font-size: 24px;
   font-weight: 700;
@@ -30,20 +43,16 @@
   margin-bottom: 6px;
 }
 
-/* ===== File Link ===== */
 .file-link {
-  display: inline-block;
   font-size: 14px;
   color: #2563eb;
+  display: inline-block;
   margin-bottom: 20px;
-  text-decoration: none;
 }
 
-.file-link:hover {
-  text-decoration: underline;
-}
-
-/* ===== Sections ===== */
+/* ===============================
+   SECTIONS
+   =============================== */
 .section {
   margin-top: 24px;
 }
@@ -52,10 +61,11 @@
   font-size: 18px;
   font-weight: 600;
   margin-bottom: 10px;
-  color: #1e293b;
 }
 
-/* ===== Extracted Text ===== */
+/* ===============================
+   EXTRACTED TEXT
+   =============================== */
 .text-box {
   width: 100%;
   background: #f8fafc;
@@ -64,13 +74,14 @@
   padding: 14px;
   font-size: 14px;
   line-height: 1.6;
-  color: #334155;
-  white-space: pre-wrap;
   max-height: 260px;
   overflow-y: auto;
+  white-space: pre-wrap;
 }
 
-/* ===== Action Buttons ===== */
+/* ===============================
+   ACTIONS
+   =============================== */
 .action-row {
   margin-top: 18px;
   display: flex;
@@ -79,16 +90,11 @@
 
 .btn-primary {
   background: #2563eb;
-  color: white;
+  color: #ffffff;
   border: none;
   padding: 10px 18px;
   border-radius: 8px;
-  font-weight: 600;
   cursor: pointer;
-}
-
-.btn-primary:hover {
-  background: #1d4ed8;
 }
 
 .btn-ghost {
@@ -99,22 +105,18 @@
   cursor: pointer;
 }
 
-.btn-ghost:hover {
-  background: #e2e8f0;
-}
-
-/* ===== Status ===== */
+/* ===============================
+   STATUS
+   =============================== */
 .status {
   margin-top: 14px;
   font-size: 14px;
   color: #475569;
 }
 
-/* ===== AI SUMMARY (KEY FIX) ===== */
-.ai-section {
-  margin-top: 28px;
-}
-
+/* ===============================
+   AI SUMMARY (FOCUS AREA)
+   =============================== */
 .ai-summary {
   width: 100%;
   background: #ecfeff;
@@ -123,6 +125,5 @@
   padding: 16px;
   font-size: 15px;
   line-height: 1.7;
-  color: #0f172a;
   white-space: pre-wrap;
 }

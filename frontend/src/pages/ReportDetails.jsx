@@ -50,6 +50,7 @@ export default function ReportDetails() {
   if (!report) return <div className="card">Loading...</div>;
 
   return (
+    <div className="report-isolation">
   <div className="report-page">
     <div className="report-card">
       <h2 className="report-title">{report.title}</h2>
@@ -88,6 +89,7 @@ export default function ReportDetails() {
         </div>
       </section>
     </div>
+  </div>
   </div>
 );
 
